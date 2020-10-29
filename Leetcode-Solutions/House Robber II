@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int rob_at_night(vector<int>& nums,int i) {
+        int n = nums.size()-1;
+        if(n==0)
+            return 0;
+        if(n==1)
+            return max(0,nums[i]);
+        vector<int> money(n,0);
+        money[0] = nums[i];
+        money[1] = max(nums[i],nums[i+1]);
+        for(int m=2;m<n;m++){
+            money[m] = max(money[m-2]+nums[i+m] , money[m-1]);
+        }
+        return  money[n-1];
+    }
+    
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        if(n==0)
+            return 0;
+        if(n==1)
+            return max(0,nums[0]);
+        return max(rob_at_night(nums,0),rob_at_night(nums,1));
+    }
+};
