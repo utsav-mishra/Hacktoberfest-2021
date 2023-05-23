@@ -2,6 +2,7 @@ class Solution
 {
 private:
 	//Checks if the elements between two indices can make Arithmetic Progression
+  // testing
     bool m_canMakeArithmeticProgression(vector<int> arr, int &l, int &r)
     {
       int size = (r - l) + 1;
